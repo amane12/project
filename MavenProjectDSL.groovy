@@ -15,9 +15,8 @@ mavenJob("First-Maven-Project-Via-DSL") {
 		scm('* * * * *')
 	}
 
-	steps {
-		maven('clean package', 'pom.xml')
-	}
+	rootPOM 'library1/pom.xml'
+ 	goals 'clean install'
 
 	publishers {
 		archiveArtifacts '**/*.war'
