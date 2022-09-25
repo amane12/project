@@ -16,7 +16,7 @@ mavenJob("First-Maven-Project-Via-DSL") {
 		scm('* * * * *')
 	}
 
-	rootPOM 'library1/pom.xml'
+	rootPOM 'pom.xml'
  	goals 'clean package'
 
 	publishers {
