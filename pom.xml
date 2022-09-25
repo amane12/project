@@ -7,6 +7,7 @@
   <version>1.0-SNAPSHOT</version>
   <name>LoginWebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
+	
   <dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -27,4 +28,10 @@
 	<build>
 		<finalName>LoginWebApp</finalName>
 	</build>
+	
+	<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-war-plugin</artifactId>
+    <version>3.3.1</version>
+</plugin>
 </project>
