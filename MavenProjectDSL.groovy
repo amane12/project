@@ -5,8 +5,9 @@ mavenJob("First-Maven-Project-Via-DSL") {
 	scm {
   		git {
    		 	remote {
-   		  		 url 'https://github.com/amane12/project.git, master'
+   		  		 url 'https://github.com/amane12/project.git'
    		 	}
+			branch 'origin/master'
 		}
 	}
 	
