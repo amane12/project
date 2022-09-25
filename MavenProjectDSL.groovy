@@ -16,7 +16,7 @@ mavenJob("First-Maven-Project-Via-DSL") {
 	}
 
 	rootPOM 'library1/pom.xml'
- 	goals 'clean install'
+ 	goals 'clean package'
 
 	publishers {
 		archiveArtifacts '**/*.war'
