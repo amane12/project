@@ -12,10 +12,9 @@ pipeline{
 					archiveArtifacts artifacts: '**/*.war'
 				}
 			}
-		}
-		
 		stage('Create tomcat Docker image'){
 			sh 'docker build . -t mytomcatapplication:${env.BUILD_ID}'
+		}
 		}
 	}
 }
