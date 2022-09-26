@@ -1,46 +1,21 @@
-pipeline {
-agent {
-label {
-		label "built-in"
-		customWorkspace "/data/project-myapp"
-		
-		}
-		}
-		
-	stages {
-		
-		stage ('CLEAN_OLD_M2') {
-			
-			steps {
-				sh "rm -rf /home/saccount/.m2/repository"
-				
-			}
-			
-		}
+Pipeline{
+	agent any
 	
-		stage ('MAVEN_BUILD') {
-		
-			steps {
-						
-						sh "mvn clean package"
-			
+	stages{
+		stage('Build Application'){
+			steps{
+				sh 'mvn clean package'
 			}
-			
-		
-		}
-		
-		stage ('COPY_WAR_TO_Server'){
-		
-				steps {
-						
-						sh "scp -r target/LoginWebApp.war saccount@10.0.2.51:/data/project/wars"
-
-						}
-				
+			post{
+				success{
+					echo "Now archiving the artifacts...."
+					archiveArtifacts artifacts: '**/*.war'
 				}
-	
-	
-	
-	}
+			}
+		}
 		
+		stage('Create tomcat Docker image'){
+			sh 'docker build . -t mytomcatapplication:${env.BUILD_ID}'
+		}
+	}
 }
