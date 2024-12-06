@@ -1,6 +1,6 @@
 FROM tomcat:latest
 
-COPY /root/.jenkins/workspace/Jenkins-maven-docker-end-end/project/target/LoginWebApp.war /usr/local/tomcat/webapps
+ADD /root/.jenkins/workspace/Jenkins-maven-docker-end-end/project/target/LoginWebApp.war /usr/local/tomcat/webapps
 
 EXPOSE 9090
 
