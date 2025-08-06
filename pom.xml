@@ -25,7 +25,7 @@
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
 		</dependency>
-	</dependencies>
+</dependencies>
 	<build>
 		<finalName>LoginWebApp</finalName>
 	<plugins>
@@ -35,14 +35,21 @@
     			<version>3.3.1</version>
 		</plugin>
 		 <plugin>
-     		 	<groupId>org.apache.maven.plugins</groupId>
-     		 	<artifactId>maven-checkstyle-plugin</artifactId>
-      			<version>3.1.2</version>
-      			<configuration>
-        		<configLocation>checkstyle.xml</configLocation>
-        		<failOnViolation>true</failOnViolation>
-      			</configuration>
-   		 </plugin>
-	</plugins>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-checkstyle-plugin</artifactId>
+  			<version>3.6.0</version> <!-- latest available -->
+ 		<dependencies>
+    		<dependency>
+      			<groupId>com.puppycrawl.tools</groupId>
+      			<artifactId>checkstyle</artifactId>
+      			<version>10.26.1</version> <!-- Latest -->
+   		</dependency>
+ 		</dependencies>
+  		<configuration>
+    			<configLocation>checkstyle.xml</configLocation>
+    			<failOnViolation>true</failOnViolation>
+  		</configuration>
+		</plugin>
+		</plugins>
 	</build>
 </project>
